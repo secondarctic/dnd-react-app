@@ -7,8 +7,10 @@ const projectID = import.meta.env.VITE_PROJECT_ID;
 const databaseID = import.meta.env.VITE_DATABASE_ID;
 const collectionID = import.meta.env.VITE_COLLECTION_ID;
 
-const useReadDB = () => {
-	const [characterInfo, setCharacterInfo] = useState([]);
+const useListCharacter = (characterID) => {
+	const [characterData, setCharacterData] = useState([]);
+
+	const documentID = characterID;
 
 	const client = new Client();
 	client.setProject(projectID);
@@ -16,21 +18,22 @@ const useReadDB = () => {
 	const databases = new Databases(client);
 
 	useEffect(() => {
-		let result = databases.listDocuments(
+		let result = databases.getDocument(
 			databaseID,
 			collectionID,
-			[] // queries (optional) Query.equal('title', ['Avatar', 'Lord of the Rings'])
+			documentID,
+			[] // queries (optional) Query.equal('$id', [`${characterID}`])
 		);
 
 		result.then((res) => {
-			setCharacterInfo(res.documents);
+			setCharacterData(res);
 		}),
 			(err) => {
 				console.log(`error:${err}, id:${err.id}`);
 			};
 	}, []);
 
-	return [characterInfo];
+	return [characterData];
 };
 
-export default useReadDB;
+export default useListCharacter;
