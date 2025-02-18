@@ -1,21 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import useReadDB from '../util/hooks/useReadDB';
-import useListCharacter from '../util/hooks/useListCharacter';
-import AbilityScores from './forms/character/AbilityScores';
+import DetailBlock from './character/DetailBlock';
+import AbilityStatBlock from './character/AbilityStatBlock';
+import CharacterUpdateForm from './forms/character/CharacterUpdateForm';
+import useGetCharacter from '../util/hooks/useGetCharacter';
 
 const Character = () => {
 	const { characterID } = useParams();
 
-	const [characterData] = useListCharacter(characterID);
-	console.log(characterData[`$id`]);
+	// const [characterFormData, setCharacterFormData] = useState({});
+	const characterFormData = useGetCharacter(characterID);
 
-	const [temp, setTemp] = useState({
-		name: 'Lex',
-	});
+	const characterData = {
+		$id: characterID,
+		name: characterFormData['character-name'],
+		class: characterFormData.class,
+		level: characterFormData.level,
+		background: characterFormData.background,
+		race: characterFormData.race,
+		alignment: characterFormData.alignment,
+		XP: characterFormData.XP,
+		strength: characterFormData['ability-score-strength'],
+		dexterity: characterFormData['ability-score-dexterity'],
+		constitution: characterFormData['ability-score-constitution'],
+		intelligence: characterFormData['ability-score-intelligence'],
+		wisdom: characterFormData['ability-score-wisdom'],
+		charisma: characterFormData['ability-score-charisma'],
+	};
 
 	// Character Header Here
-	const characterPageID = characterData[`$id`] === characterID;
+	const characterPageID = characterFormData.$id === characterID;
 
 	if (!characterPageID) {
 		return (
@@ -25,73 +39,68 @@ const Character = () => {
 		);
 	}
 
+	// useEffect(() => {
+	// 	setCharacterFormData(useGetCharacter(characterID));
+	// }, [characterFormData]);
+
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		console.log(name, value);
-		setTemp((prev) => {
-			return {
-				...prev,
-				[`${name}`]: `${value}`,
-			};
-		});
+		// setTemp((prev) => {
+		// 	return {
+		// 		...prev,
+		// 		[`${name}`]: `${value}`,
+		// 	};
+		// });
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(temp);
 	};
-	// Character Ability Stat-block here
-	<div className="flex flex-col w-3 border rounded-sm"></div>;
 
 	return (
 		<div className="m-4 p-4">
-			<h1 className="text-3xl text-blue-700">
-				{characterData['character-name']}
-			</h1>
-			{/*Character Details here */}
-			<div className="flex">
-				<div className="flex flex-row flex-wrap gap-2 my-4 p-4 w-7/12">
-					<div className="flex flex-col gap-2 w-1/4">
-						<p className="text-md font-bold">{characterData[`class`]}</p>
-						<p>Class: </p>
-					</div>
-					<div className="flex flex-col gap-2 w-1/4">
-						<p className="text-md font-bold">{characterData[`level`]}</p>
-						<p>Level: </p>
-					</div>
-					<div className="flex flex-col gap-2 w-1/4">
-						<p className="text-md font-bold">{characterData[`background`]}</p>
-						<p>Background: </p>
-					</div>
-					<div className="flex flex-col gap-2 w-1/4">
-						<p className="text-md font-bold">{characterData[`race`]}</p>
-						<p>Race: </p>
-					</div>
-					<div className="flex flex-col gap-2 w-1/4">
-						<p className="text-md font-bold">{characterData[`alignment`]}</p>
-						<p>Alignment: </p>
-					</div>
-					<div className="flex flex-col gap-2 w-1/4">
-						<p className="text-md font-bold">{characterData[`XP`]}</p>
-						<p>XP: </p>
-					</div>
-				</div>
+			<h1 className="text-3xl text-blue-700">{characterData.name}</h1>
+			<a href="/" className="text-blue-700 text-sm underline">
+				Back to Character List
+			</a>
+			<div className="flex items-start">
 				{/*Character Ability Stat-block here */}
-				<div className="flex flex-col my-4 p-4 w-5/12">
-					<p>Strength: {characterData[`ability-score-strength`]}</p>
-					<p>Dexterity: {characterData[`ability-score-dexterity`]}</p>
-					<p>Constitution: {characterData[`ability-score-constitution`]}</p>
-					<p>Intelligence: {characterData[`ability-score-intelligence`]}</p>
-					<p>Wisdom: {characterData[`ability-score-wisdom`]}</p>
-					<p>Charisma: {characterData[`ability-score-charisma`]}</p>
+				<div className="flex flex-col my-4 p-4 w-2/12">
+					<AbilityStatBlock stat={characterData.strength} label="Strength" />
+					<AbilityStatBlock stat={characterData.dexterity} label="Dexterity" />
+					<AbilityStatBlock
+						stat={characterData.constitution}
+						label="Constitution"
+					/>
+					<AbilityStatBlock
+						stat={characterData.intelligence}
+						label="Intelligence"
+					/>
+					<AbilityStatBlock stat={characterData.wisdom} label="Wisdom" />
+					<AbilityStatBlock stat={characterData.charisma} label="Charisma" />
+				</div>
+
+				{/*Character Details here */}
+				<div className="flex flex-row flex-wrap gap-x-4 gap-y-2 my-4 p-4 w-10/12">
+					<DetailBlock detail={characterData.class} label="Class" />
+					<DetailBlock detail={characterData.level} label="Level" />
+					<DetailBlock detail={characterData.background} label="Background" />
+					<DetailBlock detail={characterData.race} label="Race" />
+					<DetailBlock detail={characterData.alignment} label="Alignment" />
+					<DetailBlock detail={characterData.XP} label="XP" />
 				</div>
 			</div>
-			<AbilityScores handleChange={handleChange} handleSubmit={handleSubmit} />
 
 			<footer>
-				<a href="/" className="text-blue-700 underline">
-					Back to Character List
+				<a href="/" className="text-blue-700 text-sm underline">
+					Update Character information:
 				</a>
+				<CharacterUpdateForm
+					handleChange={handleChange}
+					handleSubmit={handleSubmit}
+				/>
 			</footer>
 		</div>
 	);

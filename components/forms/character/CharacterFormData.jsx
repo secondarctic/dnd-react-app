@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Client, Databases } from 'appwrite';
-import { callDatabase } from '../appwrite/callDatabase.js';
-import { appwriteAPI } from '../../lib/appwriteAPI.js';
 
 const projectID = import.meta.env.VITE_PROJECT_ID;
 const databaseID = import.meta.env.VITE_DATABASE_ID;
 const collectionID = import.meta.env.VITE_COLLECTION_ID;
 
-const useListCharacter = (characterID) => {
-	const [characterData, setCharacterData] = useState([]);
+const CharacterFormData = (characterID) => {
+	const [characterFormData, setCharacterFormData] = useState([]);
 
 	const documentID = characterID;
 
@@ -26,14 +24,15 @@ const useListCharacter = (characterID) => {
 		);
 
 		result.then((res) => {
-			setCharacterData(res);
+			setCharacterFormData(res);
 		}),
 			(err) => {
 				console.log(`error:${err}, id:${err.id}`);
+				throw err;
 			};
 	}, []);
 
-	return [characterData];
+	return characterFormData;
 };
 
-export default useListCharacter;
+export default CharacterFormData;
