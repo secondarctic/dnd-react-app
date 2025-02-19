@@ -3,19 +3,17 @@ import useReadDB from '../util/hooks/useReadDB.js';
 import useCreateDBEntry from '../util/hooks/useCreateDBEntry.js';
 import CreateCharacterForm from './forms/character/CreateCharacterForm.jsx';
 
-const CharacterList = (props) => {
+const CharacterList = () => {
 	const [characterInfo] = useReadDB();
 	const [newCharacterName, setNewCharacterName] = useState('');
 
 	const handleChange = (e) => {
 		const { value } = e.target;
 		setNewCharacterName(value);
-		// console.log(value);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// console.log(newCharacterName);
 		useCreateDBEntry(newCharacterName);
 	};
 
