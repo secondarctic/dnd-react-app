@@ -8,7 +8,7 @@ import {
 	Route,
 } from 'react-router-dom';
 import CharacterList from '../components/CharacterList.jsx';
-import Character from '../components/Character.jsx';
+import Character from '../components/character/Character.jsx';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
