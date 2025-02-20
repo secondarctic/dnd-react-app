@@ -1,6 +1,4 @@
 import React from 'react';
-import Input from '../Input';
-import Button from '../Button';
 import UpdateAbilityScoreForm from './UpdateAbilityScoreForm';
 import UpdateDetailsForm from './UpdateDetailsForm';
 
@@ -10,9 +8,17 @@ const CharacterUpdateForm = (props) => {
 			<div className="flex flex-col justify-start p-2">
 				<div className="flex flex-row w-full gap-x-4">
 					{/* Ability Score Inputs Here */}
-					<UpdateAbilityScoreForm title="Ability Scores" />
+					<UpdateAbilityScoreForm
+						title="Ability Scores (1–20)"
+						handleChange={props.handleChange}
+						handleSubmit={props.handleSubmit}
+					/>
 					{/* Character Details Here */}
-					<UpdateDetailsForm title="Character Details" />
+					<UpdateDetailsForm
+						title="Character Details"
+						handleChange={props.handleChange}
+						handleSubmit={props.handleSubmit}
+					/>
 				</div>
 			</div>
 		</div>

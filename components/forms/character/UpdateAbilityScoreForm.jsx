@@ -1,4 +1,3 @@
-import React from 'react';
 import Input from '../Input';
 import Button from '../Button';
 
@@ -9,50 +8,49 @@ const updateAbilityScoreForm = (props) => {
 				<p>{props.title}:</p>
 				<form
 					className="flex flex-col justify-start p-2 gap-2"
-					action=""
 					onSubmit={props.handleSubmit}
 				>
 					<Input
+						id="strength"
 						type="number"
 						name="strength"
-						id="strength"
 						placeholder="strength"
-						onChange={props.handleChange}
+						handleChange={props.handleChange}
 					/>
 					<Input
+						id="dexterity"
 						type="number"
 						name="dexterity"
-						id="dexterity"
 						placeholder="dexterity"
-						onChange={props.handleChange}
+						handleChange={props.handleChange}
 					/>
 					<Input
+						id="constitution"
 						type="number"
 						name="constitution"
-						id="constitution"
 						placeholder="constitution"
-						onChange={props.handleChange}
+						handleChange={props.handleChange}
 					/>
 					<Input
+						id="intelligence"
 						type="number"
 						name="intelligence"
-						id="intelligence"
 						placeholder="intelligence"
-						onChange={props.handleChange}
+						handleChange={props.handleChange}
 					/>
 					<Input
+						id="wisdom"
 						type="number"
 						name="wisdom"
-						id="wisdom"
 						placeholder="wisdom"
-						onChange={props.handleChange}
+						handleChange={props.handleChange}
 					/>
 					<Input
+						id="charisma"
 						type="number"
 						name="charisma"
-						id="charisma"
 						placeholder="charisma"
-						onChange={props.handleChange}
+						handleChange={props.handleChange}
 					/>
 					<Button type="submit" text="Update" />
 				</form>

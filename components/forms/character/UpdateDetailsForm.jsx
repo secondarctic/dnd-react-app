@@ -10,7 +10,6 @@ const UpdateDetailsForm = (props) => {
 				<p>{props.title}:</p>
 				<form
 					className="flex flex-col justify-start p-2 gap-2"
-					action=""
 					onSubmit={props.handleSubmit}
 				>
 					<Input
@@ -18,13 +17,43 @@ const UpdateDetailsForm = (props) => {
 						type="text"
 						name="class"
 						placeholder="class"
-						// value={props.value}
+						handleChange={props.handleChange}
 					/>
-					<Input placeholder="level" />
-					<Input placeholder="background" />
-					<Input placeholder="race" />
-					<Input placeholder="alignment" />
-					<Input placeholder="experience points" />
+					<Input
+						id="level"
+						type="text"
+						name="level"
+						placeholder="level"
+						handleChange={props.handleChange}
+					/>
+					<Input
+						id="background"
+						type="text"
+						name="background"
+						placeholder="background"
+						handleChange={props.handleChange}
+					/>
+					<Input
+						id="race"
+						type="text"
+						name="race"
+						placeholder="race"
+						handleChange={props.handleChange}
+					/>
+					<Input
+						id="alignment"
+						type="text"
+						name="alignment"
+						placeholder="alignment"
+						handleChange={props.handleChange}
+					/>
+					<Input
+						id="xp"
+						type="text"
+						name="xp"
+						placeholder="experience points"
+						handleChange={props.handleChange}
+					/>
 					<Button type="submit" text="update" />
 				</form>
 			</div>

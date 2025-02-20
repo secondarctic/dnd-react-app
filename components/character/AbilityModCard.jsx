@@ -30,7 +30,7 @@ const AbilityModCard = (props) => {
 	}
 	return (
 		<div className="flex flex-col items-center">
-			<div className="border h-12 w-12 rounded-full flex justify-center items-center text-2xl text-gray-500 font-bold">
+			<div className="border h-12 w-12 rounded-br-2xl rounded-tl-2xl flex justify-center items-center text-2xl text-gray-500 font-bold">
 				{mod}
 			</div>
 			<div className="mb-4">
