@@ -29,12 +29,12 @@ const CharacterList = (props) => {
 			/>
 
 			<div className="flex gap-x-1 items-baseline">
-				<p className="text-sm text-gray-800 no-underline">
-					List of Accessible Character Sheets -{' '}
+				<p className="text-xs mt-4 text-gray-800 no-underline">
+					List of Accessible Character Sheets:{' '}
 				</p>
-				<p className="text-xs text-gray-400 no-underline">
+				{/* <p className="text-xs text-gray-400 no-underline">
 					please navigate to view more detailed character info:
-				</p>
+				</p> */}
 			</div>
 			<div className="my-2">
 				<ul>
