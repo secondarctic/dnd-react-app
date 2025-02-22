@@ -42,9 +42,9 @@ const Character = () => {
 						Back to Character List
 					</a>
 
-					<div className="flex items-start">
+					<div className="flex flex-row justify-start items-start gap-2">
 						{/*Character Ability Stat-block here */}
-						<div className="flex flex-col my-4 p-4 w-2/12">
+						<div className="flex flex-col my-4 p-4 w-min border border-gray-300 rounded-md">
 							<div className="flex flex-row gap-2 items-baseline">
 								<AbilityStatCard
 									stat={characterFormData.strength}
@@ -88,22 +88,26 @@ const Character = () => {
 								<AbilityModCard stat={characterFormData.charisma} />
 							</div>
 						</div>
-						<div className="flex flex-col my-4 p-4 w-2/12"></div>
-
-						{/*Character Details here */}
-						<div className="flex flex-row flex-wrap gap-x-4 gap-y-2 my-4 p-4 w-10/12">
-							<DetailsCard detail={characterFormData.class} label="Class" />
-							<DetailsCard detail={characterFormData.level} label="Level" />
-							<DetailsCard
-								detail={characterFormData.background}
-								label="Background / Profession"
-							/>
-							<DetailsCard detail={characterFormData.race} label="Race" />
-							<DetailsCard
-								detail={characterFormData.alignment}
-								label="Alignment"
-							/>
-							<DetailsCard detail={characterFormData.xp} label="XP" />
+						<div className="flex flex-col my-4 p-4 w-auto border border-gray-300 rounded-md">
+							{/*Character Details here */}
+							<div className="flex flex-col gap-5 w-max my-4 p-4 border border-gray-300 rounded-md">
+								<div className="flex flex-row gap-x-4">
+									<DetailsCard detail={characterFormData.class} label="Class" />
+									<DetailsCard detail={characterFormData.level} label="Level" />
+									<DetailsCard
+										detail={characterFormData.background}
+										label="Background or Profession"
+									/>
+								</div>
+								<div className="flex flex-row gap-x-4">
+									<DetailsCard detail={characterFormData.race} label="Race" />
+									<DetailsCard
+										detail={characterFormData.alignment}
+										label="Alignment"
+									/>
+									<DetailsCard detail={characterFormData.xp} label="XP" />
+								</div>
+							</div>
 						</div>
 					</div>
 
