@@ -2,10 +2,11 @@ import React from 'react';
 
 const DetailBlock = (props) => {
 	return (
-		<div className="flex flex-col w-1/4">
-			<p className="text-md text-gray-700 font-bold border-b mb-0.5 py-0.5">
-				{props.detail}
-			</p>
+		<div className="flex flex-col">
+			<div className="w-52 border-b mb-0.5 py-0.5">
+				<p className="text-md text-gray-700 font-bold">{props.detail}</p>
+			</div>
+
 			<p className="text-xs">{props.label}: </p>
 		</div>
 	);

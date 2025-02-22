@@ -3,19 +3,17 @@ import useReadDB from '../util/hooks/useReadDB.js';
 import useCreateDBEntry from '../util/hooks/useCreateDBEntry.js';
 import CreateCharacterForm from './forms/character/CreateCharacterForm.jsx';
 
-const CharacterList = (props) => {
+const CharacterList = () => {
 	const [characterInfo] = useReadDB();
 	const [newCharacterName, setNewCharacterName] = useState('');
 
 	const handleChange = (e) => {
 		const { value } = e.target;
 		setNewCharacterName(value);
-		// console.log(value);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// console.log(newCharacterName);
 		useCreateDBEntry(newCharacterName);
 	};
 
@@ -29,12 +27,12 @@ const CharacterList = (props) => {
 			/>
 
 			<div className="flex gap-x-1 items-baseline">
-				<p className="text-sm text-gray-800 no-underline">
-					List of Accessible Character Sheets -{' '}
+				<p className="text-xs mt-4 text-gray-800 no-underline">
+					List of Accessible Character Sheets:{' '}
 				</p>
-				<p className="text-xs text-gray-400 no-underline">
+				{/* <p className="text-xs text-gray-400 no-underline">
 					please navigate to view more detailed character info:
-				</p>
+				</p> */}
 			</div>
 			<div className="my-2">
 				<ul>
