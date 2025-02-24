@@ -48,6 +48,14 @@ const useGetCharacter = (characterID) => {
 		intelligence: characterData.intelligence,
 		wisdom: characterData.wisdom,
 		charisma: characterData.charisma,
+		['strength save proficiency']: characterData['strength-save-proficiency'],
+		['dexterity save proficiency']: characterData['dexterity-save-proficiency'],
+		['constitution save proficiency']:
+			characterData['constitution-save-proficiency'],
+		['intelligence save proficiency']:
+			characterData['intelligence-save-proficiency'],
+		['wisdom save proficiency']: characterData['wisdom-save-proficiency'],
+		['charisma save proficiency']: characterData['charisma-save-proficiency'],
 	};
 	return { characterFormData, isLoading };
 };

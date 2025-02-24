@@ -13,6 +13,7 @@ const Character = () => {
 	const { characterID } = useParams();
 
 	const { characterFormData, isLoading } = useGetCharacter(characterID);
+	console.log(characterFormData);
 
 	const [formData, setFormData] = useState({});
 
