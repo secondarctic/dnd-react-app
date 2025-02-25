@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Input = (props) => {
+const Checkbox = () => {
 	return (
 		<>
 			<label htmlFor={props.id}>{props.label}</label>
 			<input
-				className={props.style}
+				className="w-44 h-8 px-2 border border-gray-400 rounded-sm text-sm text-black-400"
 				type={props.type}
 				id={props.id}
 				name={props.name}
@@ -17,4 +17,4 @@ const Input = (props) => {
 	);
 };
 
-export default Input;
+export default Checkbox;
