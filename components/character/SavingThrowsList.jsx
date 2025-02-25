@@ -17,7 +17,7 @@ const SavingThrowsList = (props) => {
 				className="p-4 flex flex-col gap-2 border border-gray-300 rounded-md"
 				onSubmit={props.handleSubmit}
 			>
-				<h3 className="text-xl">Savings Throws</h3>
+				<h3 className="text-xl">Saving Throws</h3>
 
 				<SavingThrowsCard
 					saveName="Strength Save"
