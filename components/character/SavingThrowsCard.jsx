@@ -9,7 +9,7 @@ const SavingThrowsCard = (props) => {
 	return (
 		<>
 			{/* Checkbox here */}
-			<div className="flex gap-2 items-center">
+			<div className="flex gap-2 items-center text-gray-700">
 				<Input
 					style={checkBoxStyle}
 					id={props.skill}
