@@ -2,9 +2,9 @@ import React from 'react';
 
 const AbilityModCard = (props) => {
 	const score = props.stat;
-	// console.log('score', score);
+
 	let mod;
-	let style;
+
 	if (score < 2) {
 		mod = '-5';
 	} else if (score < 4) {
