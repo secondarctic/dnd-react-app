@@ -11,7 +11,7 @@ const useCreateDBEntry = (value) => {
 	const databases = new Databases(client);
 
 	if (!value) {
-		alert('Please enter a character name.');
+		alert('Please enter a character name to continue.');
 	} else {
 		let character = databases.createDocument(
 			databaseID,
