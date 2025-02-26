@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
-import Input from '../forms/Input';
+import React from 'react';
+import Input from '../../forms/Input';
 import SaveModCard from './SaveModCard';
 
 const SavingThrowsCard = (props) => {
-	const checkBoxStyle = 'flex order-first';
+	const character = props.character;
+	const checkBoxStyle = 'flex order-first h-4 w-4 border-full';
 	const labelStyle = 'text-sm';
 
 	return (
 		<>
-			{/* Checkbox here */}
+			{/* <form action="" onSubmit={props.handleSubmit}> */}
 			<div className="flex gap-2 items-center text-gray-700">
+				{/* Checkbox here */}
 				<Input
 					style={checkBoxStyle}
-					id={props.skill}
+					id={props.id}
 					type="checkbox"
-					name={props.save}
-					handleChange={props.handleChange}
+					name={props.name}
+					checked={props.isProficient}
 					isProficient={props.isProficient}
+					handleChange={props.handleChange}
 				/>
 
 				{/* Modifier here */}
@@ -31,6 +34,7 @@ const SavingThrowsCard = (props) => {
 					<p>{props.saveName}</p>
 				</div>
 			</div>
+			{/* </form> */}
 		</>
 	);
 };
