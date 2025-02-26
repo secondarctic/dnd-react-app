@@ -1,6 +1,5 @@
 import React from 'react';
 import InspoProfCard from './InspoProfCard';
-import SavingThrowsCard from './SavingThrowsCard';
 import SkillsList from './SkillsList';
 import SavingThrowsList from './SavingThrowsList';
 
