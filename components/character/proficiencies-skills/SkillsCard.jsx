@@ -3,7 +3,7 @@ import Input from '../../forms/Input';
 import SaveModCard from './SaveModCard';
 
 const SkillsCard = (props) => {
-	const checkBoxStyle = 'flex order-first';
+	const checkBoxStyle = 'flex order-first h-4 w-4 border-full';
 	const labelStyle = 'text-sm';
 
 	return (
@@ -12,9 +12,10 @@ const SkillsCard = (props) => {
 			<div className="flex gap-2 items-center text-gray-700">
 				<Input
 					style={checkBoxStyle}
-					id={props.skill}
+					id={props.id}
 					type="checkbox"
-					name={props.skill}
+					name={props.name}
+					checked={props.isProficient}
 					handleChange={props.handleChange}
 					isProficient={props.isProficient}
 				/>

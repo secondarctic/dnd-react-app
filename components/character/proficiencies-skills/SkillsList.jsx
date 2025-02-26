@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SkillsCard from './SkillsCard';
+import useUpdateDB from '../../../util/hooks/useUpdateDB';
 
 const SkillsList = (props) => {
-	const [isProficient, setIsProficient] = useState(false);
+	const characterData = props.characterData;
 
-	const character = props.characterData;
+	const [formData, setFormData] = useState({});
+	const [detectFormChanges, setDetectFormChanges] = useState(false);
 
-	const handleChange = () => {
-		setIsProficient(!isProficient);
+	useEffect(() => {
+		if (detectFormChanges) {
+			useUpdateDB(characterData.$id, formData);
+		}
+	}, [detectFormChanges]);
+
+	const handleChange = (e) => {
+		const { name, checked } = e.target;
+
+		setFormData((prev) => ({
+			...prev,
+			[`${name}`]: checked,
+		}));
+
+		setDetectFormChanges(true);
 	};
 
+	const handleSubmit = (e) => {
+		e.preventDefault();
+	};
 	return (
 		<>
 			<form
@@ -20,163 +38,181 @@ const SkillsList = (props) => {
 
 				<SkillsCard
 					skillName="Acrobatics"
-					skill="acrobatics"
-					abilityDependency={character.dexterity}
+					name="skill-acrobatics"
+					id="acrobatics"
+					abilityDependency={characterData.dexterity}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.acrobatics}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Animal Handling"
-					skill="animalHandling"
-					abilityDependency={character.wisdom}
+					name="skill-animal-handling"
+					id="animalHandling"
+					abilityDependency={characterData.wisdom}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.animalHandling}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Arcana"
-					skill="arcana"
-					abilityDependency={character.intelligence}
+					name="skill-arcana"
+					id="arcana"
+					abilityDependency={characterData.intelligence}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.arcana}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Athletics"
-					skill="athletics"
-					abilityDependency={character.strength}
+					name="skill-athletics"
+					id="athletics"
+					abilityDependency={characterData.strength}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.athletics}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Deception"
-					skill="deception"
-					abilityDependency={character.charisma}
+					name="skill-deception"
+					id="deception"
+					abilityDependency={characterData.charisma}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.deception}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="History"
-					skill="history"
-					abilityDependency={character.intelligence}
+					name="skill-history"
+					id="history"
+					abilityDependency={characterData.intelligence}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.history}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Insight"
-					skill="insight"
-					abilityDependency={character.wisdom}
+					name="skill-insight"
+					id="insight"
+					abilityDependency={characterData.wisdom}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.insight}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Intimidation"
-					skill="intimidation"
-					abilityDependency={character.charisma}
+					name="skill-intimidation"
+					id="intimidation"
+					abilityDependency={characterData.charisma}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.intimidation}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Investigation"
-					skill="investigation"
-					abilityDependency={character.intelligence}
+					name="skill-investigation"
+					id="investigation"
+					abilityDependency={characterData.intelligence}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.investigation}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Medicine"
-					skill="medicine"
-					abilityDependency={character.wisdom}
+					name="skill-medicine"
+					id="medicine"
+					abilityDependency={characterData.wisdom}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.medicine}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Nature"
-					skill="nature"
-					abilityDependency={character.intelligence}
+					name="skill-nature"
+					id="nature"
+					abilityDependency={characterData.intelligence}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.nature}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Perception"
-					skill="perception"
-					abilityDependency={character.wisdom}
+					name="skill-perception"
+					id="perception"
+					abilityDependency={characterData.wisdom}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.perception}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Performance"
-					skill="performance"
-					abilityDependency={character.charisma}
+					name="skill-performance"
+					id="performance"
+					abilityDependency={characterData.charisma}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.performance}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Persuasion"
-					skill="persuasion"
-					abilityDependency={character.charisma}
+					name="skill-persuasion"
+					id="persuasion"
+					abilityDependency={characterData.charisma}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.persuasion}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Religion"
-					skill="religion"
-					abilityDependency={character.intelligence}
+					name="skill-religion"
+					id="religion"
+					abilityDependency={characterData.intelligence}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.religion}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Sleight of Hand"
-					skill="sleightOfHand"
-					abilityDependency={character.dexterity}
+					name="skill-sleight-of-hand"
+					id="sleightOfHand"
+					abilityDependency={characterData.dexterity}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.sleightOfHand}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Stealth"
-					skill="stealth"
-					abilityDependency={character.dexterity}
+					name="skill-stealth"
+					id="stealth"
+					abilityDependency={characterData.dexterity}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.stealth}
 					handleChange={handleChange}
 				/>
 
 				<SkillsCard
 					skillName="Survival"
-					skill="survival"
-					abilityDependency={character.wisdom}
+					name="skill-survival"
+					id="survival"
+					abilityDependency={characterData.wisdom}
 					proficiencyBonus={props.proficiencyBonus}
-					isProficient={isProficient}
+					isProficient={characterData.survival}
 					handleChange={handleChange}
 				/>
 			</form>

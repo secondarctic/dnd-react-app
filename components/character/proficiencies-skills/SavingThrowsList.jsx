@@ -40,8 +40,8 @@ const SavingThrowsList = (props) => {
 					id="strengthSave"
 					stat={characterData.strength}
 					proficiencyBonus={props.proficiencyBonus}
-					handleChange={handleChange}
 					isProficient={characterData.strengthSave}
+					handleChange={handleChange}
 				/>
 
 				<SavingThrowsCard
@@ -50,8 +50,8 @@ const SavingThrowsList = (props) => {
 					id="dexteritySave"
 					stat={characterData.dexterity}
 					proficiencyBonus={props.proficiencyBonus}
-					handleChange={handleChange}
 					isProficient={characterData.dexteritySave}
+					handleChange={handleChange}
 				/>
 
 				<SavingThrowsCard
@@ -60,8 +60,8 @@ const SavingThrowsList = (props) => {
 					id="constitutionSave"
 					stat={characterData.constitution}
 					proficiencyBonus={props.proficiencyBonus}
-					handleChange={handleChange}
 					isProficient={characterData.constitutionSave}
+					handleChange={handleChange}
 				/>
 
 				<SavingThrowsCard
@@ -70,8 +70,8 @@ const SavingThrowsList = (props) => {
 					id="intelligenceSave"
 					stat={characterData.intelligence}
 					proficiencyBonus={props.proficiencyBonus}
-					handleChange={handleChange}
 					isProficient={characterData.intelligenceSave}
+					handleChange={handleChange}
 				/>
 
 				<SavingThrowsCard
@@ -80,8 +80,8 @@ const SavingThrowsList = (props) => {
 					id="wisdomSave"
 					stat={characterData.wisdom}
 					proficiencyBonus={props.proficiencyBonus}
-					handleChange={handleChange}
 					isProficient={characterData.wisdomSave}
+					handleChange={handleChange}
 				/>
 
 				<SavingThrowsCard
@@ -90,8 +90,8 @@ const SavingThrowsList = (props) => {
 					id="charismaSave"
 					stat={characterData.charisma}
 					proficiencyBonus={props.proficiencyBonus}
-					handleChange={handleChange}
 					isProficient={characterData.charismaSave}
+					handleChange={handleChange}
 				/>
 			</form>
 		</>
