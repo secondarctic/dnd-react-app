@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Client, Databases } from 'appwrite';
 const projectID = import.meta.env.VITE_PROJECT_ID;
 const databaseID = import.meta.env.VITE_DATABASE_ID;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Input from '../forms/Input';
+import Input from '../../forms/Input';
 import SaveModCard from './SaveModCard';
 
 const SkillsCard = (props) => {

@@ -11,6 +11,7 @@ const Input = (props) => {
 				name={props.name}
 				placeholder={props.placeholder}
 				value={props.value}
+				checked={props.checked}
 				onChange={props.handleChange}
 			/>
 		</>
