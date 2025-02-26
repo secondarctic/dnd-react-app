@@ -7,7 +7,7 @@ const CreateCharacterForm = (props) => {
 		'w-70 h-8 px-2 border border-gray-400 rounded-sm text-sm text-black-400';
 
 	return (
-		<div className="my-4 p-4 h-auto border border-gray-300 rounded-md">
+		<div className="my-4 p-4 h-auto border border-gray-300 rounded-md min-w-min max-w-200">
 			<form
 				className="flex flex-col justify-start gap-2"
 				onSubmit={props.handleSubmit}
