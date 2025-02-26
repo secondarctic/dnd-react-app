@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import UpdateCharacterForm from '../forms/character/UpdateCharacterForm';
 import useGetCharacter from '../../util/hooks/useGetCharacter';
 import useUpdateDB from '../../util/hooks/useUpdateDB';
-import DetailsCard from './DetailsCard';
-import AbilityStatCard from './AbilityStatCard';
-import AbilityModCard from './AbilityModCard';
-import ProficiencyBlock from './ProficiencyBlock';
-import SkillsCard from './SkillsCard';
+import DetailsBlock from './details/DetailsBlock';
+import AbilityStatBlock from './abilities/AbilityStatBlock';
+import ProficiencyBlock from './proficiencies-skills/ProficiencyBlock';
 
 const Character = () => {
 	const { characterID } = useParams();
 
 	const { characterFormData, isLoading } = useGetCharacter(characterID);
-	console.log(characterFormData);
 
 	const [formData, setFormData] = useState({});
 
@@ -27,7 +24,6 @@ const Character = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		useUpdateDB(characterID, formData);
-		console.log(formData);
 	};
 
 	if (isLoading) {
@@ -41,8 +37,8 @@ const Character = () => {
 			<>
 				<div className="m-4 p-4">
 					<div className="p-4 flex flex-row gap-8 items-start border border-gray-300 rounded-md">
-						<div>
-							{/*Character Name here */}
+						<div className="min-w-75">
+							{/* Character Name here */}
 							<h1 className="text-3xl text-blue-700 pb-1 my-1 border-b-2 border-b-blue-700">
 								{characterFormData.name}
 							</h1>
@@ -51,73 +47,15 @@ const Character = () => {
 							</a>
 						</div>
 						<div className="flex flex-col">
-							{/*Character Details here */}
-							<div className="flex flex-col gap-5 p-4">
-								<div className="flex flex-row flex-wrap w-auto gap-4">
-									<DetailsCard detail={characterFormData.class} label="Class" />
-									<DetailsCard detail={characterFormData.level} label="Level" />
-									<DetailsCard
-										detail={characterFormData.background}
-										label="Background or Profession"
-									/>
-									<DetailsCard detail={characterFormData.race} label="Race" />
-									<DetailsCard
-										detail={characterFormData.alignment}
-										label="Alignment"
-									/>
-									<DetailsCard detail={characterFormData.xp} label="XP" />
-								</div>
-							</div>
+							{/* Character Details here */}
+							<DetailsBlock characterData={characterFormData} />
 						</div>
 					</div>
 					<div className="flex flex-row justify-start items-start gap-4">
-						{/*Character Ability Stat-blocks here */}
-						<div className="flex flex-col my-4 p-4 w-min border border-gray-300 rounded-md">
-							<div className="flex flex-row gap-2 items-baseline">
-								<AbilityStatCard
-									stat={characterFormData.strength}
-									label="Strength"
-								/>
-								<AbilityModCard stat={characterFormData.strength} />
-							</div>
-							<div className="flex flex-row gap-2 items-baseline">
-								<AbilityStatCard
-									stat={characterFormData.dexterity}
-									label="Dexterity"
-								/>
-								<AbilityModCard stat={characterFormData.dexterity} />
-							</div>
-							<div className="flex flex-row gap-2 items-baseline">
-								<AbilityStatCard
-									stat={characterFormData.constitution}
-									label="Constitution"
-								/>
-								<AbilityModCard stat={characterFormData.constitution} />
-							</div>
-							<div className="flex flex-row gap-2 items-baseline">
-								<AbilityStatCard
-									stat={characterFormData.intelligence}
-									label="Intelligence"
-								/>
-								<AbilityModCard stat={characterFormData.intelligence} />
-							</div>
-							<div className="flex flex-row gap-2 items-baseline">
-								<AbilityStatCard
-									stat={characterFormData.wisdom}
-									label="Wisdom"
-								/>
-								<AbilityModCard stat={characterFormData.wisdom} />
-							</div>
-							<div className="flex flex-row gap-2 items-baseline">
-								<AbilityStatCard
-									stat={characterFormData.charisma}
-									label="Charisma"
-								/>
-								<AbilityModCard stat={characterFormData.charisma} />
-							</div>
-						</div>
+						{/* Character Ability Stat Blocks here */}
+						<AbilityStatBlock characterData={characterFormData} />
 
-						{/* Proficiencies & Savings Throws Block */}
+						{/* Proficiencies, Savings Throws, & Skills Block */}
 						<div className="flex flex-col my-4 p-4 w-min border border-gray-300 rounded-md">
 							<ProficiencyBlock characterData={characterFormData} />
 						</div>
