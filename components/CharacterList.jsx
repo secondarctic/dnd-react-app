@@ -30,9 +30,6 @@ const CharacterList = () => {
 				<p className="text-xs mt-4 text-gray-800 no-underline">
 					List of Accessible Character Sheets:{' '}
 				</p>
-				{/* <p className="text-xs text-gray-400 no-underline">
-					please navigate to view more detailed character info:
-				</p> */}
 			</div>
 			<div className="my-2">
 				<ul>
