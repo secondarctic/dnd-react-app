@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import SavingThrowsCard from './SavingThrowsCard';
 import useUpdateDB from '../../../util/hooks/useUpdateDB';
 
@@ -7,6 +6,11 @@ const SavingThrowsList = (props) => {
 	const characterData = props.characterData;
 
 	const [formData, setFormData] = useState({});
+	const [detectFormChanges, setDetectFormChanges] = useState(false);
+
+	useEffect(() => {
+		if (detectFormChanges) useUpdateDB(characterData.$id, formData);
+	}, [detectFormChanges]);
 
 	const handleChange = (e) => {
 		const { name, checked } = e.target;
@@ -16,14 +20,11 @@ const SavingThrowsList = (props) => {
 			[`${name}`]: checked,
 		}));
 
-		console.log('character id', characterData.$id);
-		console.log(formData);
-		// useUpdateDB(characterData.$id, formData);
+		setDetectFormChanges(true);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// useUpdateDB(characterData.$id, formData);
 	};
 	return (
 		<>
@@ -35,7 +36,7 @@ const SavingThrowsList = (props) => {
 
 				<SavingThrowsCard
 					saveName="Strength Save"
-					name="strengthSave"
+					name="strength-save-proficiency"
 					id="strengthSave"
 					stat={characterData.strength}
 					proficiencyBonus={props.proficiencyBonus}
@@ -45,7 +46,7 @@ const SavingThrowsList = (props) => {
 
 				<SavingThrowsCard
 					saveName="Dexterity Save"
-					name="dexteritySave"
+					name="dexterity-save-proficiency"
 					id="dexteritySave"
 					stat={characterData.dexterity}
 					proficiencyBonus={props.proficiencyBonus}
@@ -55,7 +56,7 @@ const SavingThrowsList = (props) => {
 
 				<SavingThrowsCard
 					saveName="Constitution Save"
-					name="constitutionSave"
+					name="constitution-save-proficiency"
 					id="constitutionSave"
 					stat={characterData.constitution}
 					proficiencyBonus={props.proficiencyBonus}
@@ -65,7 +66,7 @@ const SavingThrowsList = (props) => {
 
 				<SavingThrowsCard
 					saveName="Intelligence Save"
-					name="intelligenceSave"
+					name="intelligence-save-proficiency"
 					id="intelligenceSave"
 					stat={characterData.intelligence}
 					proficiencyBonus={props.proficiencyBonus}
@@ -75,7 +76,7 @@ const SavingThrowsList = (props) => {
 
 				<SavingThrowsCard
 					saveName="Wisdom Save"
-					name="wisdomSave"
+					name="wisdom-save-proficiency"
 					id="wisdomSave"
 					stat={characterData.wisdom}
 					proficiencyBonus={props.proficiencyBonus}
@@ -85,7 +86,7 @@ const SavingThrowsList = (props) => {
 
 				<SavingThrowsCard
 					saveName="Charisma Save"
-					name="charismaSave"
+					name="charisma-save-proficiency"
 					id="charismaSave"
 					stat={characterData.charisma}
 					proficiencyBonus={props.proficiencyBonus}
