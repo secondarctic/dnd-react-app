@@ -3,13 +3,11 @@ import Input from '../../forms/Input';
 import SaveModCard from './SaveModCard';
 
 const SavingThrowsCard = (props) => {
-	const character = props.character;
 	const checkBoxStyle = 'flex order-first h-4 w-4 border-full';
 	const labelStyle = 'text-sm';
 
 	return (
 		<>
-			{/* <form action="" onSubmit={props.handleSubmit}> */}
 			<div className="flex gap-2 items-center text-gray-700">
 				{/* Checkbox here */}
 				<Input
@@ -34,7 +32,6 @@ const SavingThrowsCard = (props) => {
 					<p>{props.saveName}</p>
 				</div>
 			</div>
-			{/* </form> */}
 		</>
 	);
 };

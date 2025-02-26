@@ -4,7 +4,7 @@ import AbilityModCard from './AbilityModCard';
 
 const AbilityStatBlock = (props) => {
 	const character = props.characterData;
-	console.log('char', character);
+
 	return (
 		<>
 			<div className="flex flex-col my-4 p-4 w-min border border-gray-300 rounded-md">

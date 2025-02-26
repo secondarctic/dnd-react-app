@@ -8,7 +8,6 @@ const SkillsList = (props) => {
 
 	const handleChange = () => {
 		setIsProficient(!isProficient);
-		console.log(isProficient);
 	};
 
 	return (
