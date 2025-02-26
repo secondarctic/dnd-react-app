@@ -59,6 +59,11 @@ const Character = () => {
 						<div className="flex flex-col my-4 p-4 w-min border border-gray-300 rounded-md">
 							<ProficiencyBlock characterData={characterFormData} />
 						</div>
+
+						{/* Combat (Amor Class, Initiative, Speed & Hit Points) Block */}
+						{/* <div className="flex flex-col my-4 p-4 w-min border border-gray-300 rounded-md"> */}
+						{/* <CombatBlock characterData={characterFormData} /> */}
+						{/* </div> */}
 					</div>
 
 					<footer>

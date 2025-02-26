@@ -1,5 +1,6 @@
 import React from 'react';
-import InspoProfCard from './InspoProfCard';
+import ProficienciesSkillsCard from './ProficienciesSkillsCard';
+import AbilityModCard from '../abilities/AbilityModCard';
 import SkillsList from './SkillsList';
 import SavingThrowsList from './SavingThrowsList';
 
@@ -24,7 +25,10 @@ const ProficiencyBlock = (props) => {
 	return (
 		<>
 			<div className="flex flex-col gap-4">
-				<InspoProfCard proficiencyBonus={proficiencyBonus} />
+				<ProficienciesSkillsCard
+					characterData={character}
+					proficiencyBonus={proficiencyBonus}
+				/>
 
 				<SavingThrowsList
 					characterData={character}

@@ -1,37 +1,14 @@
 import React from 'react';
+import useAbilityScoreModifier from '../../../util/hooks/useAbilityScoreModifier';
 
 const AbilityModCard = (props) => {
-	const score = props.stat;
+	const scoreModifier = useAbilityScoreModifier(props.stat);
 
-	let mod;
-
-	if (score < 2) {
-		mod = '-5';
-	} else if (score < 4) {
-		mod = '-4';
-	} else if (score < 6) {
-		mod = '-3';
-	} else if (score < 8) {
-		mod = '-2';
-	} else if (score < 10) {
-		mod = '-1';
-	} else if (score < 12) {
-		mod = '0';
-	} else if (score < 14) {
-		mod = '+1';
-	} else if (score < 16) {
-		mod = '+2';
-	} else if (score < 18) {
-		mod = '+3';
-	} else if (score < 20) {
-		mod = '+4';
-	} else if (score < 22) {
-		mod = '+5';
-	}
 	return (
 		<div className="flex flex-col items-center ">
 			<div className="border h-12 w-12 rounded-br-2xl rounded-tl-2xl flex justify-center items-center text-2xl text-gray-500 font-bold">
-				{mod}
+				{scoreModifier > 0 ? '+' : ''}
+				{scoreModifier}
 			</div>
 			<div className="mb-4">
 				<p className="text-xs">{props.label}</p>
