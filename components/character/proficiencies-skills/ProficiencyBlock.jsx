@@ -1,6 +1,5 @@
 import React from 'react';
 import ProficienciesSkillsCard from './ProficienciesSkillsCard';
-import AbilityModCard from '../abilities/AbilityModCard';
 import SkillsList from './SkillsList';
 import SavingThrowsList from './SavingThrowsList';
 

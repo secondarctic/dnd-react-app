@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../../../components/generic/Button';
 import Input from '../../../components/generic/Input';
 
-const UpdateDetailsForm = (props) => {
+const UpdateCombatStatForm = (props) => {
 	const textStyle =
 		'w-44 h-8 px-2 border border-gray-400 rounded-sm text-sm text-black-400';
 	return (
@@ -15,52 +15,49 @@ const UpdateDetailsForm = (props) => {
 				>
 					<Input
 						style={textStyle}
-						id="class"
-						type="text"
-						name="class"
-						placeholder="class"
+						id="armorBonus"
+						type="number"
+						name="armor-bonus"
+						placeholder="bonuses from armor"
 						handleChange={props.handleChange}
 					/>
+
 					<Input
 						style={textStyle}
-						id="level"
-						type="text"
-						name="level"
-						placeholder="level"
+						id="speed"
+						type="number"
+						name="speed"
+						placeholder="speed"
 						handleChange={props.handleChange}
 					/>
+
 					<Input
 						style={textStyle}
-						id="background"
-						type="text"
-						name="background"
-						placeholder="background"
+						id="maxHP"
+						type="number"
+						name="max-hp"
+						placeholder="set max hit points"
 						handleChange={props.handleChange}
 					/>
+
 					<Input
 						style={textStyle}
-						id="race"
-						type="text"
-						name="race"
-						placeholder="race"
+						id="tempHP"
+						type="number"
+						name="temp-hp"
+						placeholder="temporary hit points"
 						handleChange={props.handleChange}
 					/>
+
 					<Input
 						style={textStyle}
-						id="alignment"
+						id="hitDice"
 						type="text"
-						name="alignment"
-						placeholder="alignment"
+						name="hit-dice"
+						placeholder="hit dice"
 						handleChange={props.handleChange}
 					/>
-					<Input
-						style={textStyle}
-						id="xp"
-						type="text"
-						name="xp"
-						placeholder="experience points"
-						handleChange={props.handleChange}
-					/>
+
 					<Button type="submit" text="update" />
 				</form>
 			</div>
@@ -68,4 +65,4 @@ const UpdateDetailsForm = (props) => {
 	);
 };
 
-export default UpdateDetailsForm;
+export default UpdateCombatStatForm;
