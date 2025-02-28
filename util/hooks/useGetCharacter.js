@@ -72,6 +72,13 @@ const useGetCharacter = (characterID) => {
 		sleightOfHand: characterData['skill-sleight-of-hand'],
 		stealth: characterData['skill-stealth'],
 		survival: characterData['skill-survival'],
+		armorBonus: characterData['armor-bonus'],
+		speed: characterData['speed'],
+		maxHP: characterData['max-hp'],
+		tempHP: characterData['temp-hp'],
+		damage: characterData['damage'],
+		heal: characterData['heal'],
+		hitDice: characterData['hit-dice'],
 	};
 	return { characterFormData, isLoading };
 };
