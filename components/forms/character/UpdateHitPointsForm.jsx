@@ -10,7 +10,7 @@ const UpdateHitPointsForm = (props) => {
 					<Input
 						style="w-full mb-2 h-6 px-2 border border-gray-400 rounded-sm text-sm text-gray-500"
 						id="damage"
-						type="text"
+						type="number"
 						name="damage"
 						placeholder="damage"
 						handleChange={props.handleChange}
@@ -18,7 +18,7 @@ const UpdateHitPointsForm = (props) => {
 					<Input
 						style="w-full mb-2 h-6 px-2 border border-gray-400 rounded-sm text-sm text-gray-500"
 						id="heal"
-						type="text"
+						type="number"
 						name="heal"
 						placeholder="heal"
 						handleChange={props.handleChange}

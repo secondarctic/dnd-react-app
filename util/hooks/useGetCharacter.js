@@ -73,11 +73,11 @@ const useGetCharacter = (characterID) => {
 		stealth: characterData['skill-stealth'],
 		survival: characterData['skill-survival'],
 		armorBonus: characterData['armor-bonus'],
-		speed: characterData['speed'],
+		speed: characterData.speed,
 		maxHP: characterData['max-hp'],
 		tempHP: characterData['temp-hp'],
-		damage: characterData['damage'],
-		heal: characterData['heal'],
+		damage: characterData.damage,
+		heal: characterData.heal,
 		hitDice: characterData['hit-dice'],
 	};
 	return { characterFormData, isLoading };

@@ -20,13 +20,15 @@ const CombatCard = (props) => {
 	const armorWorn = Number(character.armorBonus);
 	const armorClass = armorWorn > 0 ? 10 + armorWorn : 10 + dexMod;
 
-	const maxHP = Number(character.maxHP);
-	const tempHP = Number(character.tempHP);
-	const heal = Number(character.heal);
-	const damage = Number(character.damage);
-	const currentHP = maxHP + tempHP + heal - damage;
-
-	// console.log(currentHP);
+	let maxHP = Number(character.maxHP);
+	let tempHP = Number(character.tempHP);
+	let heal = Number(character.heal);
+	let damage = Number(character.damage);
+	let currentHP = maxHP + tempHP + heal - damage;
+	// set heal limit to maxHP
+	if (currentHP > maxHP) {
+		currentHP = maxHP;
+	}
 
 	const [formData, setFormData] = useState({});
 
