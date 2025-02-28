@@ -6,6 +6,7 @@ import useUpdateDB from '../../util/hooks/useUpdateDB';
 import DetailsBlock from './details/DetailsBlock';
 import AbilityStatBlock from './abilities/AbilityStatBlock';
 import ProficiencyBlock from './proficiencies-skills/ProficiencyBlock';
+import CombatBlock from './combat/CombatBlock';
 
 const Character = () => {
 	const { characterID } = useParams();
@@ -46,11 +47,13 @@ const Character = () => {
 								Back to Character List
 							</a>
 						</div>
+
 						<div className="flex flex-col">
 							{/* Character Details here */}
 							<DetailsBlock characterData={characterFormData} />
 						</div>
 					</div>
+
 					<div className="flex flex-row justify-start items-start gap-4">
 						{/* Character Ability Stat Blocks here */}
 						<AbilityStatBlock characterData={characterFormData} />
@@ -61,9 +64,9 @@ const Character = () => {
 						</div>
 
 						{/* Combat (Amor Class, Initiative, Speed & Hit Points) Block */}
-						{/* <div className="flex flex-col my-4 p-4 w-min border border-gray-300 rounded-md"> */}
-						{/* <CombatBlock characterData={characterFormData} /> */}
-						{/* </div> */}
+						<div className="flex flex-col gap-4 items-center my-4 p-4 w-min border border-gray-300 rounded-md">
+							<CombatBlock characterData={characterFormData} />
+						</div>
 					</div>
 
 					<footer>

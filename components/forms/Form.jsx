@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './Button';
-import Input from './Input';
+import Button from '../generic/Button';
+import Input from '../generic/Button';
 
 const Form = (props) => {
 	return (

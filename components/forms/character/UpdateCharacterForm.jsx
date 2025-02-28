@@ -1,6 +1,7 @@
 import React from 'react';
 import UpdateAbilityScoreForm from './UpdateAbilityScoreForm';
 import UpdateDetailsForm from './UpdateDetailsForm';
+import UpdateCombatStatForm from './UpdateCombatStatForm';
 
 const CharacterUpdateForm = (props) => {
 	return (
@@ -16,6 +17,11 @@ const CharacterUpdateForm = (props) => {
 					{/* Character Details Here */}
 					<UpdateDetailsForm
 						title="Character Details"
+						handleChange={props.handleChange}
+						handleSubmit={props.handleSubmit}
+					/>
+					<UpdateCombatStatForm
+						title="Combat Stats"
 						handleChange={props.handleChange}
 						handleSubmit={props.handleSubmit}
 					/>

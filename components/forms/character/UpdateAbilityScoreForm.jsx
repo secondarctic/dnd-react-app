@@ -1,5 +1,5 @@
-import Input from '../Input';
-import Button from '../Button';
+import Button from '../../../components/generic/Button';
+import Input from '../../../components/generic/Input';
 
 const updateAbilityScoreForm = (props) => {
 	const textStyle =
@@ -60,7 +60,7 @@ const updateAbilityScoreForm = (props) => {
 						placeholder="charisma"
 						handleChange={props.handleChange}
 					/>
-					<Button type="submit" text="Update" />
+					<Button type="submit" text="update" />
 				</form>
 			</div>
 		</>
